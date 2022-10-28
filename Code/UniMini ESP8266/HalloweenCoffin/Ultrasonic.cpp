@@ -51,7 +51,7 @@ long  measure_distance()
     return Lowpass(cm);
 }
 
-#define MEASURE_INTERVAL 333 // three times a second will do nicely
+#define MEASURE_INTERVAL 250 // four times a second will do nicely
 static unsigned long NextTimeToMeasure;
 void SetupUltrasonic()
 {
@@ -59,9 +59,8 @@ void SetupUltrasonic()
 	pinMode(PIN_ULTRASONIC_ECHO, INPUT);
     NextTimeToMeasure = millis() + MEASURE_INTERVAL;
     for (int i = 0; i < LOWPASS_SIZE; ++i)
-    {
         buf[LOWPASS_SIZE] = 200;
-    }
+
     distance = 200;
 }
 

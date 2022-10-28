@@ -28,17 +28,16 @@ void CoffinPlayMP3(int no)
 		delay(100);
 		break;
 	case WANTYOUTODIE:
-		myDFPlayer.volume(23);
+		myDFPlayer.volume(30);
 		delay(100);
 		break;
 	case TODESSCHREI:
-		myDFPlayer.volume(5);
+		myDFPlayer.volume(8);
 		delay(100);
 		break;
 	case SCHREI:
-		myDFPlayer.volume(15);
+		myDFPlayer.volume(20);
 		delay(100);
 		break;
 	}
-
 }
