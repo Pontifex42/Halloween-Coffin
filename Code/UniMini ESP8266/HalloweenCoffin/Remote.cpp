@@ -131,9 +131,9 @@ void DoRemoteControlledAction()
     {
         shadowCover = RemoteXY.Cover;
         if (RemoteXY.Cover == 0)
-            CoverOpen();
+            CoverClose();
         else if (RemoteXY.Cover == 1)
-            CoverClose(); 
+            CoverOpen();
     }
 
     static uint8_t shadowCorpse = 42;
@@ -141,9 +141,9 @@ void DoRemoteControlledAction()
     {
         shadowCorpse = RemoteXY.Corpse;
         if (RemoteXY.Corpse == 0)
-            CorpseUp();
+            CorpseDown();
         else if (RemoteXY.Corpse == 1)
-            CorpseDown(); 
+            CorpseUp();
     }
 
     static uint8_t shadowMusic = 42;

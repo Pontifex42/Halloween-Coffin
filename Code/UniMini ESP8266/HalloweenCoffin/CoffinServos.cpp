@@ -218,6 +218,30 @@ void RestartAllServos()
 #define TIME_TO_RAISE 3500
 #define TIME_TO_LAYDOWN 3000
 
+void PlayCorpseUpDownSound()
+{
+	const int CorpsUpSoundSelection[] =
+	{
+		WANTYOUTODIE,
+		TODESSCHREI,
+		SCHREI,
+		BRUELL,
+		BRUELL2,
+		GESPENST,
+		GLOCKENSCHLAG,
+		KICHERN,
+		KRAEHE,
+		MEINGERIPPE,
+		WOLF1
+	};
+
+	int r = random(11);
+
+	CoffinPlayMP3(CorpsUpSoundSelection[r]);
+	DEBUG_PRINTLN("Corpse sound: " + String(no));
+}
+
+
 void CorpseUp()
 {
 	CoverOpen();
@@ -227,7 +251,7 @@ void CorpseUp()
 		return;
 	}
 	if (ServoCorpse.GetPWM() == PWM_CORPSE_DOWN)
-		CoffinPlayMP3(TODESSCHREI);
+		PlayCorpseUpDownSound();
 
 	ServoCorpse.MoveSmoothTo(PWM_CORPSE_UP, TIME_TO_RAISE);
 }
@@ -235,7 +259,7 @@ void CorpseUp()
 void CorpseDown()
 {
 	if (ServoCorpse.GetPWM() == PWM_CORPSE_UP)
-		CoffinPlayMP3(WANTYOUTODIE);
+		PlayCorpseUpDownSound();
 
 	ServoCorpse.MoveSmoothTo(PWM_CORPSE_DOWN, TIME_TO_LAYDOWN);
 }
@@ -258,7 +282,7 @@ void CoverClose()
 	}
 
 	if (ServoCover.GetPWM() == PWM_COVER_OPEN)
-		CoffinPlayMP3(KNARREN);
+		CoffinPlayMP3(KNARREN2);
 
 	ServoCover.MoveSmoothTo(PWM_COVER_CLOSED, TIME_TO_CLOSE);
 }

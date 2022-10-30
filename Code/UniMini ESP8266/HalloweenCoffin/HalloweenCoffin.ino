@@ -45,27 +45,17 @@ void setup()
     SetupRemote();
     SetupMP3Player();
 
-    // After swich on, give time to close cover and place the coffin
-    yield();
-    delay(1000);
-    yield();
-    delay(1000);
-    yield();
-    CoffinPlayMP3(SCHREI);
-    delay(1000);
-    yield();
-    delay(1000);
-    yield();
-    delay(1000);
-    yield();
-    delay(1000);
+    // After swiching on, give time to close cover and place the coffin
+    delay(6000);
+    CoffinPlayMP3(KICHERN);
+    delay(6000);
     DEBUG_PRINTLN("Setup done");
 }
 
-#define DISTANCE_SLEEP 60
-#define DISTANCE_ATTENTION 35
-#define DISTANCE_ALARM 15
-#define DISTANCE_HORROR 15
+#define DISTANCE_SLEEP 80
+#define DISTANCE_ATTENTION 50
+#define DISTANCE_ALARM 25
+#define DISTANCE_HORROR 25
 
 void loop() 
 {
@@ -74,6 +64,7 @@ void loop()
         return;
 
     LoopServos();
+
     LoopLEDs();
 
     LoopRemote();
@@ -82,12 +73,15 @@ void loop()
         return;
 
     LoopUltrasonic();
+    
+    LoopMP3Player();
 
     if (RemoteXYIsConnected())
     {
         DoRemoteControlledAction();
         return;
     }
+
     enum CoffinState
     {
         none, // only for boot
@@ -118,7 +112,7 @@ void loop()
             CoverClose();
 
             if ((currentState != horror) && (currentState != alarm)) // do not play music if target moves away
-                CoffinPlayMP3(SCHREI);
+                CoffinPlayMP3(BRUELL);
             
             currentState = attention;
         }
@@ -132,6 +126,7 @@ void loop()
             SetEye(glow);
             SetLight(true);
             CoverOpen();
+            CorpseDown();
         }
     }
     else // if (distance <= DISTANCE_HORROR)
