@@ -13,4 +13,8 @@ Not all components have to be populated, many parts are optional.
 Some more information is at thingiverse, but I'd recommend to use STL from github:
 https://www.thingiverse.com/thing:5584885
 
+Mp3 samples are for mp3 player like DFPlayer.
+Some mp3 snippets are omitted due to legal reasons, I took them from a song "Nina Hagen - Auf'm Friedhof".
+Feel free to place your own samples (< 10 seconds), the filename scheme is obvious.
+
 Questions? Ideas? Contact github@hartwig.org. I answer all messages fast.
