@@ -10,7 +10,7 @@ To make your own board, here are schematics and Gerber files:
 https://github.com/Pontifex42/UniMiniESP8266
 Not all components have to be populated, many parts are optional.
 
-Some more information is at thingiverse, but I'd recommend to use STL from github:
+Some more information to build it is on thingiverse:
 https://www.thingiverse.com/thing:5584885
 
 Mp3 samples are for mp3 player like DFPlayer.
